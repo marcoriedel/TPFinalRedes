@@ -50,24 +50,25 @@ Un socket es un proceso o hilo existente en la máquina cliente y en la máquina
 4. ¿A qué capa del modelo TPC/IP pertenecen los sockets? ¿Porque? 
 
 Los sockets pertenecen a la 3 capa del modelo TCP/IP llamada transporte, pertenecen a esta capa dado que un socket es una interfaz de comunicación entre un proceso de aplicación y la capa de transporte. Permiten enviar y recibir los datos de la red a los procesos 
+
 5. ¿Cómo funciona el modelo cliente-servidor con TCP/IP Sockets? 
 
 La comunicación entre entidades abstractas (PCs) se logra utilizando diferentes técnicas, una de ellas es utilizando sockets, que consiste en configurar una red cliente servidor para establecer el flujo de información entre transmisor y receptor.. Para que dos aplicaciones puedan intercambiar información entre sí se necesita:
 
-  •Un protocolo de comunicación común a nivel de red y a nivel de transporte. 
-  •Una dirección del protocolo de red que identifique a cada uno de los computadores. 
-  •Un número de puerto que identifique la aplicación dentro del computador. 
+    •Un protocolo de comunicación común a nivel de red y a nivel de transporte. 
+    •Una dirección del protocolo de red que identifique a cada uno de los computadores. 
+    •Un número de puerto que identifique la aplicación dentro del computador. 
   
 Los socket se utilizan para poder enviar órdenes a un servidor que está atendiendo nuestras peticiones. Por lo tanto, un socket queda definido por una dirección IP (La del equipo que actúa como servidor), un protocolo y un número de puerto (El utilizado para acceder a un servicio determinado). A su vez, los sockets están basados en el protocolo de comunicaciones utilizado en Internet: TCP (Transmisión Control Protocol). La función del protocolo TCP es, ni más ni menos que la de traer y llevar información desde un servidor a un cliente y viceversa utilizando los diferentes protocolos utilizados por cada servicio.
 
 6. ¿Cuales son las causas comunes por la que la conexión entre cliente/servidor falle?
  
-  *Accidente en el lugar donde se encuentran los equipos.
-  *Fallo del suministro eléctrico.
-  *Fallo en la conexión a Internet.
-  *Fallo en el hardware o en el software. El problema más común del hardware es una sobrecarga o un recalentamiento, en el software la caída de la base de datos.
-  *Error humano.
-  *Virus o troyano.
+       *Accidente en el lugar donde se encuentran los equipos.
+       *Fallo del suministro eléctrico.
+       *Fallo en la conexión a Internet.
+       *Fallo en el hardware o en el software. El problema más común del hardware es una sobrecarga o un recalentamiento, en el software la caída de la base de datos.
+       *Error humano.
+       *Virus o troyano.
 
 7. Diferencias entre sockets UDP y TCP 
 
