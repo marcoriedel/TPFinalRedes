@@ -7,7 +7,7 @@ Trabajo Final Redes
 4) Correr la clase Client y seleccionar host y puerto. Por defecto sera localhost y puerto 3000
 5) Si se envía el mensaje X la conexion sera cerrada.
 
--- Cuestionario
+# Cuestionario
 
 1. ¿Que es un puerto? 
 
