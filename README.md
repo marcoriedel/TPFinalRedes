@@ -73,15 +73,22 @@ Los socket se utilizan para poder enviar órdenes a un servidor que está atendi
 7. Diferencias entre sockets UDP y TCP 
 
  La principal diferencia entre ambos es que el UDP necesita que le entreguemos paquetes de datos que el usuario debe construir, mientras el TCP admite bloques de datos que serán empaquetados de forma transparente antes de ser transmitidos.
+ 
 Si un paquete se pierde el UDP no hace nada. Por el contrario, si un segmento se pierde el TCP lo retransmitirá, y este proceso durará hasta que el segmento ha sido correctamente entregado al host receptor, o se produzca un número máximo de retransmisiones.
+
  En el UDP controlamos qué datos viajan en cada paquete. En el TCP esto no es posible porque el empaquetamiento es automático. De hecho, el TCP espera un tiempo prudencial a tener bastantes datos que transmitir antes de enviar un segmento ya que esto ahorra ancho de banda. Si es importante que los datos tarden el mínimo tiempo posible en llegar al receptor el UDP es la mejor opción. En este sentido se dice que el UDP tiene una menor latencia que el TCP.
  
 8. Diferencia entre sync & async sockets? 
 
 Una aplicación se comunica realizando entrada y salida de datos. Pueden ser comunicaciones de red (socket), lectura o escritura en un archivo, etc. Esta entrada/salida de información se puede realizar de dos maneras sincrónica y asincrónica. 
-Cuando se usa la manera síncrona, la persona que llama se bloquea hasta que la llamada se realiza correctamente. 
+
+Cuando se usa la manera síncrona, la persona que llama se bloquea hasta que la llamada se realiza correctamente.
+
 Este modelo está bien cuando tiene una comunicación ocurriendo. El problema es cuando su aplicación se distribuye masivamente y se comunica con muchos pares. En ese caso, debe tener N tareas (también llamadas subprocesos) y cada una se encargará de comunicarse con un par.
+
 Por otro lado si utilizamos la manera asincrónica, verifica periódicamente si hay algo recibido.
+
 Esta comunicación no es secuencial en absoluto. De hecho, envía información y luego, hay un bucle principal que recibe respuestas y vuelve a escribir de acuerdo con un protocolo.
+
 No hay necesidad de tareas adicionales en ese modelo, puede manejarlas todas en la tarea principal. La parte difícil es seguir el estado de cada operación.
 
